@@ -1,0 +1,9 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "black-formatter.args": ["-l", "100", "-S", "-C"],
+    "flake8.args": ["--max-line-length", "100"],
+    "mypy-type-checker.args": ["--disallow-untyped-defs", "--disallow-implicit-reexport"]
+}

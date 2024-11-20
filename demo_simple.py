@@ -1,7 +1,7 @@
-#!/usr/bin/python2.6
+import timetravelpdb
 
-import tom
+tt_pdb = timetravelpdb.TimeTravelPdb()
 
-tom.set_trace()
+tt_pdb.set_trace()
 for i in range(15):
-  print "THE NUMBER IS", i
+    print(f"THE NUMBER IS {i}")
