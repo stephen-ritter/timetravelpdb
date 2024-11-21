@@ -44,15 +44,15 @@ class TimeTravelPdb(pdb.Pdb):
 
     def _tomography_snapshot(self, frame):
         def _handle_cont(self, foo):
-            dlog('CONTINUE')
+            dlog("CONTINUE")
             pass
 
         def _handle_int(self, foo):
-            dlog('INT')
+            dlog("INT")
             os._exit(0)
             pass
 
-        dlog('SNAP')
+        dlog("SNAP")
         pid = os.fork()
         if pid:
             # Parent:
@@ -74,7 +74,7 @@ class TimeTravelPdb(pdb.Pdb):
             signal.signal(signal.SIGINT, signal.default_int_handler)
             dlog("CHILD WAKING UP")
             num = self._tomography_serial = self._tomography_serial + 1  # Skip ourself
-            self.prompt = f"(Pdb:{num-1}) "
+            self.prompt = f"(Pdb:{num - 1}) "
             return
         dlog("PIDS = %s" % self._tomography_pids)
         while len(self._tomography_pids) > self.umax:
@@ -164,7 +164,7 @@ class TimeTravelPdb(pdb.Pdb):
                 os.kill(pid, 0)
                 dlog(f"PID ALIVE {pid}")
             except OSError:
-                dlog(f"PID DEAD  {pid}")
+                dlog(f"PID DEAD {pid}")
                 del self._tomography_pids[i]  # Forget it
                 self._forget_pid(pid)
 
